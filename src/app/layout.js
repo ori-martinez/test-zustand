@@ -9,8 +9,9 @@ import { ToastContainer } from 'react-toastify';
 // CONSTANTES
 /* Metadatos de la Página */
 export const metadata = {
-    title: 'Test Zustand',
     description: 'Testing Zustand',
+    icons: { icon: "icon.ico", },
+    title: 'Test Zustand',
 }
 
 // LAYOUT
