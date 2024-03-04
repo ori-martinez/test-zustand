@@ -1,6 +1,8 @@
+/* Cookies Next */
+import Cookies from 'js-cookie'; 
 /* Zustand */
 import { create } from 'zustand';
-import { persist } from 'zustand/middleware';
+import { createJSONStorage, persist } from 'zustand/middleware';
 
 // HOOK
 /* Contexto de Autenticación */
@@ -9,18 +11,15 @@ export const useAuthContext = create(
         (set) => ({
             logged: false,
             session: {},
-            token: '',
-            login: (data, token) => set((state) => ({
-                logged: true,
-                session: data,
-                token: token,
-            })),
-            logout:() => set((state) => ({
-                logged: false,
-                session: {},
-                token: '',
-            })),
+            login: (user, token) => set(() => ({ logged: true, session: { user, token }, })),
+            logout: () => set(() => ({ logged: false, session: {}, })),
         }),
-        { name: 'auth-context' }
+        {
+            storage: createJSONStorage(() => ({
+                getItem: (key) => Cookies.get(key),
+                setItem: (key, value) => Cookies.set(key, value),
+            })),
+            name: 'context',
+        },
     )
 );

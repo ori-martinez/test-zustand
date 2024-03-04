@@ -20,7 +20,7 @@ export const Navbar = () => {
     // RETORNO
     return (
         <nav className="px-10 py-4 w-full flex items-center justify-between bg-pink-600">
-            <div className="font-semibold">Test Zustand {logged && (` - ${ session.name}`)}</div>
+            <div className="font-semibold">Test Zustand {logged && (` - ${ session.user.name}`)}</div>
             
             {// CONDICIONAL
             /* Comprobación del Estado de la Autenticación */
