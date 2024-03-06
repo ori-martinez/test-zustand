@@ -38,7 +38,7 @@ export const DefaultLayout = ({ children }) => {
         // RETORNO
         return (
             <div className='h-screen flex items-center justify-center'>
-                <div className='w-48 h-48 relative bg-gradient-to-r from-pink-700 via-pink-600 to-gray-200 rounded-full animate-spin'>
+                <div className='w-48 h-48 relative bg-gradient-to-r from-pink-700 via-pink-400 to-pink-100 rounded-full animate-spin'>
                     <div className='w-40 h-40 absolute top-1/2 left-1/2 bg-black rounded-full transform -translate-x-1/2 -translate-y-1/2'></div>
                 </div>
             </div>
